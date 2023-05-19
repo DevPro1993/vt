@@ -1,0 +1,24 @@
+
+.inner {
+    background-color: black;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+}
+
+div {
+    border-radius: 50%;
+}
+
+.red-circle {
+    border: 20px solid #ee1f25;
+    color: #ee1f25
+}
+
+.blue-circle {
+    border: 20px solid #3a53a5;
+    color: #3a53a5
+}

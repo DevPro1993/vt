@@ -1,0 +1,29 @@
+.wrapper {
+    display: flex;
+    width: 100vw; 
+    height: 100vh; 
+    background-color: black; 
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+.inner-wrapper {
+    display: flex;
+
+}
+
+app-fusion-circle {
+    position: relative;
+}
+
+app-fusion-circle:first-child {
+    opacity: 0.8;
+    left: 50px;
+    z-index: 2;
+}
+
+app-fusion-circle:last-child {
+    right: 50px;
+}
+

@@ -1,0 +1,13 @@
+
+<div class="wrapper" (window:keyup)="moveSpacer($event)">
+  <select (ngModelChange)="setMaxSpacer($event)" [(ngModel)]="mode" style="position: fixed; top: 0; left: 0;"> 
+    <option value="easy">Easy</option>
+    <option value="intermediate">intermediate</option>
+    <option value="difficult">Difficult</option>
+  </select>
+  <div class="inner-wrapper">
+    <app-fusion-circle type="red"></app-fusion-circle>
+    <div class="spacer" [ngStyle]="{'width': spacer + 'px'}"></div>
+    <app-fusion-circle type="blue"></app-fusion-circle>
+  </div>
+</div>
