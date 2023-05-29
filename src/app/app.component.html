@@ -1,13 +1,14 @@
 
 <div class="wrapper" (window:keyup)="moveSpacer($event)">
   <div style="position: fixed; top: 0; left: 0; display: flex;">
-    <select (ngModelChange)="setMaxSpacer($event)" [(ngModel)]="maxDiopter"> 
+    <select style="margin-right: 10px" (ngModelChange)="setMaxSpacer($event)" [(ngModel)]="maxDiopter"> 
       <option *ngFor="let d of [10,15,20,25,30,35,40,42]" [value]="d">{{d}}</option>
     </select>
-    <select (ngModelChange)="setMode($event)" [(ngModel)]="mode"> 
+    <select style="margin-right: 10px" (ngModelChange)="setMode($event)" [(ngModel)]="mode"> 
       <option value="convergence">Convergence</option>
       <option value="divergence">Divergence</option>
     </select>
+    <button (click)="toggleAutoMode()">{{ autoModeIntervalId ? 'Manual' : 'Auto' }}</button>
   </div>
   
   <div class="inner-wrapper">

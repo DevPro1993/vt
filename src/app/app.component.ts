@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'vt';
+  autoModeIntervalId: number;
   maxDiopter: number = 10;
   mode: 'convergence' | 'divergence' = 'convergence';
   maxSpacer: number;
@@ -18,6 +19,16 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.jump = this.diopter42 / 42
     this.setMaxSpacer(this.maxDiopter)
+  }
+
+  toggleAutoMode() {
+    if (this.autoModeIntervalId) {
+      window.clearInterval(this.autoModeIntervalId);
+      this.autoModeIntervalId = null;
+    } else {
+      this.autoModeIntervalId = window.setInterval(this.randomJump.bind(this), 2500)
+    }
+    
   }
 
   moveSpacer(event: KeyboardEvent) {
@@ -35,10 +46,14 @@ export class AppComponent implements OnInit {
         this.spacer = this.minSpacer
       }
     } else if (key === 'Space') {
-      const diff = this.maxSpacer - this.minSpacer;
-      const randomJump = Math.random() * diff;
-      this.spacer = randomJump + this.minSpacer;
+      this.randomJump();
     }
+  }
+
+  private randomJump() {
+    const diff = this.maxSpacer - this.minSpacer;
+    const randomJump = Math.random() * diff;
+    this.spacer = randomJump + this.minSpacer;
   }
 
   setMaxSpacer(data: any) {
