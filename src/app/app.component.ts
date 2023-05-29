@@ -7,15 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'vt';
-  difficulty: string = 'easy';
+  maxDiopter: number = 10;
   mode: 'convergence' | 'divergence' = 'convergence';
   maxSpacer: number;
   minSpacer = 100;
   spacer = this.minSpacer;
-  jump = 15;
+  jump: number;
+  diopter42 = 850; // pixel value for 42D prism
 
   ngOnInit(): void {
-    this.setDifficulty('easy')
+    this.jump = this.diopter42 / 42
+    this.setMaxSpacer(this.maxDiopter)
   }
 
   moveSpacer(event: KeyboardEvent) {
@@ -39,10 +41,8 @@ export class AppComponent implements OnInit {
     }
   }
 
-  setDifficulty(data: string) {
-    if (data === 'easy') this.maxSpacer = 190
-    if (data === 'intermediate') this.maxSpacer = 290
-    if (data === 'difficult') this.maxSpacer = 390
+  setMaxSpacer(data: any) {
+    this.maxSpacer = (parseInt(data) / 42) * this.diopter42;
     this.reset()
   }
 

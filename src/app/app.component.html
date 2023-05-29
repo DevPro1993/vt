@@ -1,10 +1,8 @@
 
 <div class="wrapper" (window:keyup)="moveSpacer($event)">
   <div style="position: fixed; top: 0; left: 0; display: flex;">
-    <select (ngModelChange)="setDifficulty($event)" [(ngModel)]="difficulty"> 
-      <option value="easy">Easy</option>
-      <option value="intermediate">Intermediate</option>
-      <option value="difficult">Difficult</option>
+    <select (ngModelChange)="setMaxSpacer($event)" [(ngModel)]="maxDiopter"> 
+      <option *ngFor="let d of [10,15,20,25,30,35,40,42]" [value]="d">{{d}}</option>
     </select>
     <select (ngModelChange)="setMode($event)" [(ngModel)]="mode"> 
       <option value="convergence">Convergence</option>
