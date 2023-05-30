@@ -12,8 +12,8 @@
   </div>
   
   <div class="inner-wrapper">
-    <app-fusion-circle [type]="mode === 'convergence' ? 'red' : 'blue'"></app-fusion-circle>
+    <app-fusion-circle [letter]="selectedLetter" [type]="mode === 'convergence' ? 'red' : 'blue'"></app-fusion-circle>
     <div class="spacer" [ngStyle]="{'width': spacer + 'px'}"></div>
-    <app-fusion-circle [type]="mode === 'convergence' ? 'blue' : 'red'"></app-fusion-circle>
+    <app-fusion-circle [letter]="selectedLetter" [type]="mode === 'convergence' ? 'blue' : 'red'"></app-fusion-circle>
   </div>
 </div>

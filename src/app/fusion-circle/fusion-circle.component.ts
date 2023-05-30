@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class FusionCircleComponent implements OnInit {
 
   @Input() type: 'red' | 'blue';
+  @Input() letter: string;
 
   constructor() { }
 

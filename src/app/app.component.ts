@@ -15,6 +15,8 @@ export class AppComponent implements OnInit {
   spacer = this.minSpacer;
   jump: number;
   diopter42 = 850; // pixel value for 42D prism
+  letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  selectedLetter: string = this.letters[0];
 
   ngOnInit(): void {
     this.jump = this.diopter42 / 42
@@ -39,21 +41,29 @@ export class AppComponent implements OnInit {
       } else {
         this.spacer = this.maxSpacer;
       }
+      this.changeLetter()
     } else if (key === 'ArrowDown') {
       if (this.spacer > this.minSpacer + this.jump) {
         this.spacer -= this.jump
       } else {
         this.spacer = this.minSpacer
       }
+      this.changeLetter()
     } else if (key === 'Space') {
       this.randomJump();
+      
     }
+  }
+
+  private changeLetter() {
+    this.selectedLetter = this.letters[Math.ceil((Math.random() * (this.letters.length - 1)))]
   }
 
   private randomJump() {
     const diff = this.maxSpacer - this.minSpacer;
     const randomJump = Math.random() * diff;
     this.spacer = randomJump + this.minSpacer;
+    this.changeLetter()
   }
 
   setMaxSpacer(data: any) {
